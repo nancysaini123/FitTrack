@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Member Dashboard - GYM Management</title>
+  <link rel="stylesheet" href="..\css\style.css">
+</head>
+<body>
+  <header>
+    <h1>Member Dashboard</h1>
+    <nav>
+      <button onclick="logout()">Logout</button>
+    </nav>
+  </header>
+  <main>
+    <section>
+      <h2>Your Bill Receipts</h2>
+      <table border="1">
+        <thead>
+          <tr>
+            <th>Amount</th>
+            <th>Due Date</th>
+          </tr>
+        </thead>
+        <tbody id="memberBills">
+          <!-- Bills will be populated here -->
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h2>Notifications</h2>
+      <ul id="memberNotifications">
+        <!-- Notifications will be populated here -->
+      </ul>
+    </section>
+    <section>
+      <h2>Your Diet Plans</h2>
+      <ul id="memberDiets">
+        <!-- Diet plans will be shown here -->
+      </ul>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 GYM Management System</p>
+  </footer>
+  <script src="..\js\firebase-config.js"></script>
+  <script src="..\js\member.js"></script>
+  <script type="module">
+    import { auth } from '../js/firebase-config.js';
+    import { signOut } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
+    function logout() {
+      signOut(auth).then(() => {
+        window.location.href = '../pages/index.html';
+      }).catch((error) => {
+        console.error('Logout Error:', error);
+      });
+    }
+    // Optional: expose logout globally if needed
+    window.logout = logout;
+  </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Bill - GYM Management</title>
+  <link rel="stylesheet" href="..\css\style.css">
+</head>
+<body>
+  <header>
+    <h1>Create Bill for Member</h1>
+    <nav>
+      <a href="admin.html">Back to Dashboard</a>
+    </nav>
+  </header>
+  <main>
+    <section>
+      <form id="createBillForm">
+        <input type="email" id="memberEmail" name="memberEmail" placeholder="E-mail" required>
+        <input type="number" id="amount" name="amount" placeholder="Amount" required>
+        <input type="date" id="dueDate" name="dueDate" placeholder="dueDate" required>
+        <button type="submit">Create Bill</button>
+      </form>
+      <p id="billMessage" style="color:green;"></p>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 GYM Management System</p>
+  </footer>
+  <script src="..\js\firebase-config.js"></script>
+  <script src="..\js\admin.js"></script>
+</body>
+</html>
