@@ -3,7 +3,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebas
 import { getAuth } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
 import { getFirestore } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js";
 const firebaseConfig = {
-  apiKey: "AIzaSyB4tMLJlJXDsVFO6x9qUpc_rnyaoM3qVVM",
+  apiKey: getenv(apikey),
   authDomain: "fittrack-12307.firebaseapp.com",
   projectId: "fittrack-12307",
   storageBucket: "fittrack-12307.firebasestorage.app",
