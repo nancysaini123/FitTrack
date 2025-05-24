@@ -8,16 +8,23 @@
 </head>
 <body>
   <header>
-    <h1>Send Monthly Notification</h1>
-    <nav>
-      <a href="admin.html">Back to Dashboard</a>
+    <nav class="navbar">
+      <div class="left-links">
+        <a style="padding-right: 25rem">
+          <img src="FitTrack.png" alt=""class="logo">
+        </a>
+      </div>       
+      <div class="right-link">
+        <button onclick="location.href='admin.html'">Back to Dashboard</button>
+      </div>
     </nav>
   </header>
   <main>
+    <h2>Notification</h2>
     <section>
       <form id="sendNotificationForm">
-        <textarea id="message" name="message" rows="4" placeholder="Message" required></textarea>
-        <button type="submit">Send Notification</button>
+        <textarea class="btn" id="message" name="message" rows="4" placeholder="Message" required></textarea>
+        <button class="btn" type="submit">Send Notification</button>
       </form>
       <p id="notificationMessage" style="color:green;"></p>
     </section>
@@ -26,6 +33,6 @@
     <p>&copy; 2025 GYM Management System</p>
   </footer>
   <script src="..\js\firebase-config.js"></script>
-  <script src="..\js\admin.js"></script>
+  <script type="module" src="..\js\admin.js"></script>
 </body>
 </html>
