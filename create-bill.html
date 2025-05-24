@@ -8,18 +8,25 @@
 </head>
 <body>
   <header>
-    <h1>Create Bill for Member</h1>
-    <nav>
-      <a href="admin.html">Back to Dashboard</a>
+    <nav class="navbar">
+      <div class="left-links">
+        <a style="padding-right: 25rem">
+          <img src="FitTrack.png" alt=""class="logo">
+        </a>
+      </div>       
+      <div class="right-link">
+        <button onclick="location.href='admin.html'">Back to Dashboard</button>
+      </div>
     </nav>
   </header>
   <main>
+    <h2>Billing</h2>
     <section>
       <form id="createBillForm">
-        <input type="email" id="memberEmail" name="memberEmail" placeholder="E-mail" required>
-        <input type="number" id="amount" name="amount" placeholder="Amount" required>
-        <input type="date" id="dueDate" name="dueDate" placeholder="dueDate" required>
-        <button type="submit">Create Bill</button>
+        <input class="btn" type="email" id="memberEmail" name="memberEmail" placeholder="E-mail" required>
+        <input class="btn" type="number" id="amount" name="amount" placeholder="Amount" required>
+        <input class="btn" type="date" id="dueDate" name="dueDate" placeholder="dueDate" required>
+        <button class="btn" type="submit">Create Bill</button>
       </form>
       <p id="billMessage" style="color:green;"></p>
     </section>
@@ -27,7 +34,6 @@
   <footer>
     <p>&copy; 2025 GYM Management System</p>
   </footer>
-  <script src="..\js\firebase-config.js"></script>
-  <script src="..\js\admin.js"></script>
+  <script type="module" src="../js/bill.js"></script>
 </body>
 </html>
