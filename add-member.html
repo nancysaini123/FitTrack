@@ -7,35 +7,42 @@
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-  <header>
-    <h1>Add New Member</h1>
-    <nav>
-      <a href="admin.html">Back to Dashboard</a>
+   <header>
+    <nav class="navbar">
+      <div class="left-links">
+        <a style="padding-right: 25rem">
+          <img src="FitTrack.png" alt=""class="logo">
+        </a>
+      </div>       
+      <div class="right-link">
+        <button onclick="location.href='admin.html'">Back to Dashboard</button>
+      </div>
     </nav>
   </header>
   <main>
+    <h2>Add New Member</h2>
     <section>
       <form id="addMemberForm">
-        <input type="text" id="name" name="name" placeholder="Name" required>
-        <input type="email" id="memberEmail" name="email" placeholder="E-mail" required>
-        <input type="text" id="phone" name="phone" placeholder="Phone" required>
-        <select id="plan" name="plan" aria-placeholder="Membership">
+        <input class="btn" type="text" id="name" name="name" placeholder="Name" required>
+        <input class="btn" type="email" id="memberEmail" name="email" placeholder="E-mail" required>
+        <input class="btn" type="text" id="phone" name="phone" placeholder="Phone" required>
+        <select class="btn" id="plan" name="plan" aria-placeholder="Membership">
           <option value="monthly">Monthly</option>
           <option value="quarterly">Quarterly</option>
           <option value="yearly">Yearly</option>
         </select>
-        <select id="type" name="type">
+        <select class="btn" id="type" name="type">
           <option value="member">Member</option>
           <option value="user">User</option>
           <option value="admin">Admin</option>
         </select>
-        <button type="submit">Add Member</button>
+        <button class="btn" type="submit">Add Member</button>
       </form>
       <p id="addMemberMessage" style="color:green;"></p>
     </section>
   </main>
   <footer>
-    <p>&copy; 2025 GYM Management System</p>
+    <p>&copy; FitTrack | 2025 GYM Management System</p>
   </footer>
   <script src="../js/firebase-config.js" type="module"></script>
   <script src="../js/admin.js" type="module"></script>
