@@ -3,11 +3,11 @@ body {
   font-family: 'Arial', sans-serif;
   margin: 0;
   padding: 0;
-  background: rgba(14, 14, 14, 0.896);
-  color: white;
+  background: rgb(35, 35, 35);
+  background-image: url('../pages/bgindex.png');
 }
 header {
-  background: rgb(63, 140, 255);
+  background: rgb(46, 220, 220);
   color: white;
   padding: 1rem 0;
   text-align: center;
@@ -41,6 +41,20 @@ nav a {
   text-decoration: underline;
   font-weight: bold;
 }
+.intro{
+  height:40%;
+  background-color: none;
+}
+.intro p{
+  color:grey;
+  padding: 10px;
+  width: 70%;
+  font-size: 1.1rem;
+  text-align: justify;
+  line-height: 28px;
+  font-style: italic;
+  margin: auto;
+}
 main {
   padding: 2rem;
   padding-top: 15vh;
@@ -51,17 +65,26 @@ main {
   background-position: center;
 }
 h2 {
-  color: rgb(63, 140, 255);
+  color: rgb(46, 220, 220);
 }
-section {
-  margin-bottom: 2rem;
+section{
+  padding: 10px;
+}
+.member{
+  padding-top: 30px;
+}
+.profile-card{
+  color: white;
+  font-weight: 400;
+  font-size: large;
+  font-style: oblique;
 }
 ul {
   list-style-type: none;
   padding: 0;
 }
 ul li {
-  background: rgb(63, 140, 255);
+  background: rgb(46, 220, 220);
   margin: 0.5rem 0;
   padding: 0.75rem;
   border-radius: 8px;
@@ -102,20 +125,24 @@ input, select, textarea, button {
   border-radius: 5px;
 }
 button {
-  background: rgb(63, 140, 255);
+  background: rgb(46, 220, 220);
   color: white;
   border: none;
   cursor: pointer;
   font-weight: bold;
   font-size: 15px;
 }
+.btn{
+  width: 100vh;
+}
 button:hover {
-  background: rgb(63, 140, 255);
+  background: rgb(46, 220, 220);
 }
 table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 1rem;
+  color: white;
 } 
 table, th, td {
   border: 1px solid #ccc;
@@ -124,8 +151,15 @@ th, td {
   padding: 0.75rem;
   text-align: center;
 }
+.centre{
+  text-align: center;
+}
+#feedback-section{
+  padding-left: 200px;
+  padding-right: 200px;
+}
 footer {
-  background: rgb(63, 140, 255);
+  background: rgb(46, 220, 220);
   color: white;
   text-align: center;
   padding: 1rem;
