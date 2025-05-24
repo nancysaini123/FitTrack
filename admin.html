@@ -10,10 +10,10 @@
   <header>
     <nav class="navbar">
       <div class="left-links">
-        <a href="index.html" style="padding-right: 25rem">
+        <a style="padding-right: 25rem">
           <img src="FitTrack.png" alt=""class="logo">
         </a>
-      </div>        
+      </div>       
       <div class="right-link">
         <button onclick="logout()">Logout</button>
       </div>
@@ -21,33 +21,31 @@
   </header>
   <main>
     <section>
-      <p style="font-size: 40px; color:rgb(63, 140, 255)">Admin Dashboard</p>
-    </section>
-    <section>
       <h2>Manage Members</h2>
-      <button onclick="location.href='add-member.html'">Add Member</button>
-      <button onclick="location.href='view-member.html'">View/Update/Delete Members</button>
+      <button class="btn" onclick="location.href='add-member.html'">Add Member</button>
+      <button class="btn" onclick="location.href='view-member.html'">View/Update/Delete Members</button>
     </section>
     <section>
       <h2>Manage Billing</h2>
-      <button onclick="location.href='create-bill.html'">Create Bill</button>
-      <button onclick="location.href='assign-package.html'">Assign Fee Package</button>
+      <button class="btn" onclick="location.href='create-bill.html'">Create Bill</button>
+      <button class="btn" onclick="location.href='assign-package.html'">Assign Fee Package</button>
     </section>
     <section>
       <h2>Notifications</h2>
-      <button onclick="location.href='send-notification.html'">Send Monthly Notification</button>
+      <button class="btn" onclick="location.href='send-notification.html'">Send Monthly Notification</button>
     </section>
     <section>
       <h2>Reports & Supplements</h2>
-      <button onclick="location.href='export-report.html'">Export Reports</button>
-      <button onclick="location.href='diet-details.html'">Diet Details</button>
+      <button class="btn" onclick="location.href='export-report.html'">Export Reports</button>
+      <button class="btn" onclick="location.href='diet-details.html'">Diet Details</button>
     </section>
+
   </main>
   <footer>
-    <p>&copy; 2025 GYM Management System</p>
+    <p>&copy; FitTrack | 2025 GYM Management System</p>
   </footer>
-  <script src="..\js\firebase-config.js"></script>
-  <script src="..\js\admin.js"></script>
+  <script src="../js/firebase-config.js"></script>
+  <script src="../js/admin.js"></script>
   <script type="module">
     import { auth } from '../js/firebase-config.js';
     import { signOut } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
