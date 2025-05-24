@@ -1,21 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Member Dashboard - GYM Management</title>
-  <link rel="stylesheet" href="..\css\style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Member Dashboard - FitTrack</title>
+  <link rel="stylesheet" href="../css/style.css" />
 </head>
 <body>
   <header>
-    <h1>Member Dashboard</h1>
-    <nav>
-      <button onclick="logout()">Logout</button>
+    <nav class="navbar">
+      <div class="left-links">
+        <img src="FitTrack.png" alt="FitTrack Logo" class="logo" />
+      </div>
+      <div class="right-link">
+        <button onclick="logout()">Logout</button>
+      </div>
     </nav>
   </header>
   <main>
+    <div class="profile-card">
+      <h2>Profile Info</h2>
+      <p><strong>Name:</strong> <span id="memberName">Loading...</span></p>
+      <p><strong>Email:</strong> <span id="memberEmail">Loading...</span></p>
+      <p><strong>Plan:</strong> <span id="memberPlan">Loading...</span></p>
+      <p><strong>Join Date:</strong> <span id="joinDate">Loading...</span></p>
+    </div>
     <section>
-      <h2>Your Bill Receipts</h2>
+      <h2>Your Bills</h2>
       <table border="1">
         <thead>
           <tr>
@@ -24,40 +35,30 @@
           </tr>
         </thead>
         <tbody id="memberBills">
-          <!-- Bills will be populated here -->
+          <!-- Bills will load here -->
         </tbody>
       </table>
     </section>
+
     <section>
-      <h2>Notifications</h2>
+      <h2>Your Notifications</h2>
       <ul id="memberNotifications">
-        <!-- Notifications will be populated here -->
+        <!-- Notifications will load here -->
       </ul>
     </section>
+
     <section>
-      <h2>Your Diet Plans</h2>
+      <h2>Your Diet Plan</h2>
       <ul id="memberDiets">
-        <!-- Diet plans will be shown here -->
+        <!-- Diet plans will load here -->
       </ul>
     </section>
   </main>
+
   <footer>
-    <p>&copy; 2025 GYM Management System</p>
+    <p>&copy; FitTrack |2025 GYM management system</p>
   </footer>
-  <script src="..\js\firebase-config.js"></script>
-  <script src="..\js\member.js"></script>
-  <script type="module">
-    import { auth } from '../js/firebase-config.js';
-    import { signOut } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
-    function logout() {
-      signOut(auth).then(() => {
-        window.location.href = '../pages/index.html';
-      }).catch((error) => {
-        console.error('Logout Error:', error);
-      });
-    }
-    // Optional: expose logout globally if needed
-    window.logout = logout;
-  </script>
+
+  <script type="module" src="../js/member.js"></script>
 </body>
 </html>
