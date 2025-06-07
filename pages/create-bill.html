@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Bill - GYM Management</title>
+  <link rel="stylesheet" href="..\css\style.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="left-links">
+        <a style="padding-right: 25rem">
+          <img src="FitTrack.png" alt=""class="logo">
+        </a>
+      </div>       
+      <div class="right-link">
+        <button onclick="location.href='admin.html'">Back to Dashboard</button>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <h2>Billing</h2>
+    <section>
+      <form id="createBillForm">
+        <input class="btn" type="email" id="memberEmail" name="memberEmail" placeholder="E-mail" required>
+        <input class="btn" type="number" id="amount" name="amount" placeholder="Amount" required>
+        <input class="btn" type="date" id="dueDate" name="dueDate" placeholder="dueDate" required>
+        <button class="btn" type="submit">Create Bill</button>
+      </form>
+      <p id="billMessage" style="color:green;"></p>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 GYM Management System</p>
+  </footer>
+  <script type="module" src="../js/bill.js"></script>
+</body>
+</html>

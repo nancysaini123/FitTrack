@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Member Dashboard - FitTrack</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="left-links">
+        <img src="FitTrack.png" alt="FitTrack Logo" class="logo" />
+      </div>
+      <div class="right-link">
+        <button onclick="logout()">Logout</button>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <div class="profile-card">
+      <h2>Profile Info</h2>
+      <p><strong>Name:</strong> <span id="memberName">Loading...</span></p>
+      <p><strong>Email:</strong> <span id="memberEmail">Loading...</span></p>
+      <p><strong>Plan:</strong> <span id="memberPlan">Loading...</span></p>
+      <p><strong>Join Date:</strong> <span id="joinDate">Loading...</span></p>
+    </div>
+    <section>
+      <h2>Your Bills</h2>
+      <table border="1">
+        <thead>
+          <tr>
+            <th>Amount</th>
+            <th>Due Date</th>
+          </tr>
+        </thead>
+        <tbody id="memberBills">
+          <!-- Bills will load here -->
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Your Notifications</h2>
+      <ul id="memberNotifications">
+        <!-- Notifications will load here -->
+      </ul>
+    </section>
+
+    <section>
+      <h2>Your Diet Plan</h2>
+      <ul id="memberDiets">
+        <!-- Diet plans will load here -->
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; FitTrack |2025 GYM management system</p>
+  </footer>
+
+  <script type="module" src="../js/member.js"></script>
+</body>
+</html>

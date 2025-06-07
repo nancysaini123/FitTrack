@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Export Report - GYM Management</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="left-links">
+        <a style="padding-right: 25rem">
+          <img src="FitTrack.png" alt=""class="logo">
+        </a>
+      </div>       
+      <div class="right-link">
+        <button onclick="location.href='admin.html'">Back to Dashboard</button>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <h2>Export Report</h2>
+    <section style="text-align:center; padding: 3rem;">
+      <button class="btn" id="exportBtn">Export Members</button>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 GYM Management System</p>
+  </footer>
+
+  <script type="module">
+    import { db } from '../js/firebase-config.js';
+    import {
+      collection,
+      getDocs
+    } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js";
+
+    const { jsPDF } = window.jspdf;
+
+    document.getElementById('exportBtn').addEventListener('click', async () => {
+      try {
+        const querySnapshot = await getDocs(collection(db, 'users'));
+        const members = [];
+
+        querySnapshot.forEach((doc) => {
+          const data = doc.data();
+          if (data.role === 'member') {
+            members.push([
+              data.name || '',
+              data.email || '',
+              data.phone || '',
+              data.plan || '',
+              data.joinDate || ''
+            ]);
+          }
+        });
+
+        const doc = new jsPDF();
+        doc.text('Member Report', 14, 15);
+        doc.autoTable({
+          head: [['Name', 'Email', 'Phone', 'Plan', 'Join Date']],
+          body: members,
+          startY: 20
+        });
+        doc.save('member-report.pdf');
+      } catch (error) {
+        console.error('Export failed:', error);
+        alert('Export failed. Check console for error.');
+      }
+    });
+  </script>
+</body>
+</html>

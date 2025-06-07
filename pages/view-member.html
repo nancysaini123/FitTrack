@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>View Members - GYM Management</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="left-links">
+        <a style="padding-right: 25rem">
+          <img src="FitTrack.png" alt="" class="logo" />
+        </a>
+      </div>
+      <div class="right-link">
+        <button onclick="location.href='admin.html'">Back to Dashboard</button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Member Directory</h2>
+    <section class="member">
+      <div>
+        <input class="btn" type="text" id="searchInput" placeholder="Search members..." />
+        <select class="btn" id="sortSelect">
+          <option value="name">Sort by Name</option>
+          <option value="email">Sort by Email</option>
+          <option value="plan">Sort by Plan</option>
+        </select>
+      </div>
+
+      <div id="pagination" style="margin-top: 1rem;"></div>
+
+      <table id="membersTable" border="1">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Plan</th>
+            <th>Join Date</th>
+          </tr>
+        </thead>
+        <tbody id="membersBody">
+          <!-- Members will be dynamically loaded here -->
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; FitTrack | 2025 GYM Management System</p>
+  </footer>
+
+  <script type="module">
+    import { db } from '../js/firebase-config.js';
+    import { collection, getDocs } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js";
+
+    const membersBody = document.getElementById('membersBody');
+    const searchInput = document.getElementById('searchInput');
+    const sortSelect = document.getElementById('sortSelect');
+    const paginationContainer = document.getElementById('pagination');
+
+    let memberList = [];
+    let currentPage = 1;
+    const itemsPerPage = 5;
+
+    async function loadMembers() {
+      const querySnapshot = await getDocs(collection(db, 'users'));
+      memberList = [];
+
+      querySnapshot.forEach((doc) => {
+        const user = doc.data();
+        if (user.role === 'member') {
+          memberList.push(user);
+        }
+      });
+
+      renderMembers();
+    }
+
+    function renderMembers() {
+      membersBody.innerHTML = '';
+      let filtered = memberList.filter(m => m.name?.toLowerCase().includes(searchInput.value.trim().toLowerCase()));
+      filtered.sort((a, b) => (a[sortSelect.value] || '').localeCompare(b[sortSelect.value] || ''));
+
+      const totalPages = Math.ceil(filtered.length / itemsPerPage);
+      const start = (currentPage - 1) * itemsPerPage;
+      const paginated = filtered.slice(start, start + itemsPerPage);
+
+      paginated.forEach(user => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${user.name || 'N/A'}</td>
+          <td>${user.email || 'N/A'}</td>
+          <td>${user.phone || 'N/A'}</td>
+          <td>${user.plan || 'N/A'}</td>
+          <td>${user.joinDate || 'N/A'}</td>
+        `;
+        membersBody.appendChild(row);
+      });
+
+      paginationContainer.innerHTML = '';
+      for (let i = 1; i <= totalPages; i++) {
+        const btn = document.createElement('button');
+        btn.textContent = i;
+        btn.disabled = i === currentPage;
+        btn.addEventListener('click', () => {
+          currentPage = i;
+          renderMembers();
+        });
+        paginationContainer.appendChild(btn);
+      }
+    }
+
+    searchInput.addEventListener('input', () => {
+      currentPage = 1;
+      renderMembers();
+    });
+
+    sortSelect.addEventListener('change', () => {
+      currentPage = 1;
+      renderMembers();
+    });
+
+    loadMembers();
+  </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diet Details - GYM Management</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="left-links">
+        <a style="padding-right: 25rem">
+          <img src="FitTrack.png" alt=""class="logo">
+        </a>
+      </div>       
+      <div class="right-link">
+        <button onclick="location.href='admin.html'">Back to Dashboard</button>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <h2>Diet Details</h2>
+    <section>
+      <form id="dietForm">
+        <input class="btn" type="email" id="email" placeholder="E-mail" required />
+        <select class="btn" id="goal">
+          <option value="weight_loss">Weight Loss</option>
+          <option value="muscle_gain">Muscle Gain</option>
+          <option value="maintenance">Maintenance</option>
+        </select>
+        <textarea class="btn" id="diet" rows="6" placeholder="write your Diet Plan here" required></textarea>
+        <button class="btn" type="submit">Save Diet Plan</button>
+      </form>
+      <p id="dietMessage" style="color:green;"></p>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 GYM Management System</p>
+  </footer>
+  <script src="../js/firebase-config.js" type="module"></script>
+  <script src="../js/admin.js" type="module"></script>
+</body>
+</html>

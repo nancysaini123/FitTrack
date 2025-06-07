@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Member - GYM Management System</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+   <header>
+    <nav class="navbar">
+      <div class="left-links">
+        <a style="padding-right: 25rem">
+          <img src="FitTrack.png" alt=""class="logo">
+        </a>
+      </div>       
+      <div class="right-link">
+        <button onclick="location.href='admin.html'">Back to Dashboard</button>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <h2>Add New Member</h2>
+    <section>
+      <form id="addMemberForm">
+        <input class="btn" type="text" id="name" name="name" placeholder="Name" required>
+        <input class="btn" type="email" id="memberEmail" name="email" placeholder="E-mail" required>
+        <input class="btn" type="text" id="phone" name="phone" placeholder="Phone" required>
+        <select class="btn" id="plan" name="plan" aria-placeholder="Membership">
+          <option value="monthly">Monthly</option>
+          <option value="quarterly">Quarterly</option>
+          <option value="yearly">Yearly</option>
+        </select>
+        <select class="btn" id="type" name="type">
+          <option value="member">Member</option>
+          <option value="user">User</option>
+          <option value="admin">Admin</option>
+        </select>
+        <button class="btn" type="submit">Add Member</button>
+      </form>
+      <p id="addMemberMessage" style="color:green;"></p>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; FitTrack | 2025 GYM Management System</p>
+  </footer>
+  <script src="../js/firebase-config.js" type="module"></script>
+  <script src="../js/admin.js" type="module"></script>
+</body>
+</html>
