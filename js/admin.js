@@ -1,4 +1,3 @@
-// admin.js with Pagination + Sorting + Firestore Ops
 import { db } from './firebase-config.js';
 import {
   collection,
