@@ -1,5 +1,3 @@
-// bill.js - Handles bill creation and saving to Firestore
-
 import { db } from './firebase-config.js';
 import {
   collection,
